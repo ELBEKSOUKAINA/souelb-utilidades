@@ -41,3 +41,26 @@ add_shortcode( 'anio', 'souelb_shortcode_anio' );
  * ========================================================= */
 remove_action( 'wp_head', 'wp_generator' );
 
+/* =========================================================
+ * Petición 6: pantalla de acceso propia
+ * ========================================================= */
+
+// El logotipo enlaza a la portada del blog (no a wordpress.org)
+function souelb_login_url() {
+    return home_url( '/' );
+}
+add_filter( 'login_headerurl', 'souelb_login_url' );
+
+// Texto del enlace del logotipo: el nombre del blog
+function souelb_login_texto() {
+    return get_bloginfo( 'name' );
+}
+add_filter( 'login_headertext', 'souelb_login_texto' );
+
+// Aviso sobre el formulario: se añade al mensaje existente y se devuelve
+function souelb_login_aviso( $message ) {
+    $aviso = '<p class="message">' . esc_html( 'Acceso restringido al equipo de ' . get_bloginfo( 'name' ) ) . '</p>';
+    return $message . $aviso;
+}
+add_filter( 'login_message', 'souelb_login_aviso' );
+
