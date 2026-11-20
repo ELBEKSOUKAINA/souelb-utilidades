@@ -28,3 +28,11 @@ function souelb_caja_contacto( $content ) {
 }
 add_filter( 'the_content', 'souelb_caja_contacto' );
 
+/* =========================================================
+ * Petición 4: código corto [anio] con el año actual
+ * ========================================================= */
+function souelb_shortcode_anio() {
+    return esc_html( wp_date( 'Y' ) ); // devuelve, no imprime
+}
+add_shortcode( 'anio', 'souelb_shortcode_anio' );
+
