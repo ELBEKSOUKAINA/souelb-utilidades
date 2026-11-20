@@ -2,7 +2,7 @@
 /**
  * Plugin Name: souelb-utilidades
  * Description: Utilidades del blog Flag Hunters: caja de contacto en las entradas, código corto [anio], ocultar la versión de WordPress y pantalla de acceso propia.
- * Version:     1.0.0
+ * Version:     1.1.0
  * Author:      Soukaina El Bekbachi
  * Text Domain: souelb-utilidades
  */
@@ -64,3 +64,7 @@ function souelb_login_aviso( $message ) {
 }
 add_filter( 'login_message', 'souelb_login_aviso' );
 
+/* =========================================================
+ * Ampliación: quitar la versión también del feed RSS
+ * ========================================================= */
+add_filter( 'the_generator', '__return_empty_string' );
