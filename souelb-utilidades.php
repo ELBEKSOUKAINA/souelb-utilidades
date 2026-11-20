@@ -36,3 +36,8 @@ function souelb_shortcode_anio() {
 }
 add_shortcode( 'anio', 'souelb_shortcode_anio' );
 
+/* =========================================================
+ * Petición 5: quitar la versión de WordPress del <head>
+ * ========================================================= */
+remove_action( 'wp_head', 'wp_generator' );
+
